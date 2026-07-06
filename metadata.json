@@ -1,0 +1,6 @@
+{
+  "name": "Brew & Bites",
+  "description": "A stunning premium glassmorphism café ordering app featuring frosted glass panels, ambient background blobs, Secure UPI Checkout, live map with delivery tracking, and gentle audio chimes.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

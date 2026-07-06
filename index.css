@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Luxury Premium Palette Overrides */
+  --color-glass-card: rgba(255, 255, 255, 0.45);
+  --color-glass-border: rgba(255, 255, 255, 0.35);
+  --color-apple-blue: #007aff;
+  --color-apple-cyan: #30b0c7;
+  --color-apple-lavender: #af52de;
+  --color-apple-orange: #ff9500;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4ebf5 50%, #eceef3 100%);
+  color: #111827;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Glassmorphism Card Style */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04), 
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+.glass-panel-dark {
+  background: rgba(17, 24, 39, 0.65);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Liquid Glass Reflection */
+.glass-reflect {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-reflect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 45%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 55%
+  );
+  transform: rotate(-45deg);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.glass-reflect:hover::after {
+  transform: translate(50%, 50%) rotate(-45deg);
+}
+
+/* Keyframe Animations */
+@keyframes float-slow-1 {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-30px) scale(1.15); }
+}
+
+@keyframes float-slow-2 {
+  0%, 100% { transform: translateY(0px) scale(1.1); }
+  50% { transform: translateY(25px) scale(0.9); }
+}
+
+@keyframes float-slow-3 {
+  0%, 100% { transform: translate(0px, 0px); }
+  50% { transform: translate(-20px, 20px) scale(1.1); }
+}
+
+@keyframes scan-line {
+  0% { top: 0%; }
+  50% { top: 100%; }
+  100% { top: 0%; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-up-spring {
+  0% { transform: translateY(100%) scale(0.97); opacity: 0; }
+  70% { transform: translateY(-5px) scale(1.01); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes scale-up {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes ambient-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.75; }
+}
+
+/* Utility Classes */
+.animate-float-1 {
+  animation: float-slow-1 14s infinite ease-in-out;
+}
+
+.animate-float-2 {
+  animation: float-slow-2 18s infinite ease-in-out;
+}
+
+.animate-float-3 {
+  animation: float-slow-3 16s infinite ease-in-out;
+}
+
+.animate-scan-line {
+  animation: scan-line 3.5s infinite ease-in-out;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up-spring {
+  animation: slide-up-spring 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-scale-up {
+  animation: scale-up 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-ambient-pulse {
+  animation: ambient-pulse 8s infinite ease-in-out;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Glass Reflection Glow Effect */
+.glass-glow-blue:hover {
+  box-shadow: 0 0 25px rgba(0, 122, 255, 0.25), 
+              0 8px 32px 0 rgba(31, 38, 135, 0.04);
+  border-color: rgba(0, 122, 255, 0.4);
+}
+
+.glass-glow-lavender:hover {
+  box-shadow: 0 0 25px rgba(175, 82, 222, 0.25), 
+              0 8px 32px 0 rgba(31, 38, 135, 0.04);
+  border-color: rgba(175, 82, 222, 0.4);
+}
+
+.glass-glow-cyan:hover {
+  box-shadow: 0 0 25px rgba(48, 176, 199, 0.25), 
+              0 8px 32px 0 rgba(31, 38, 135, 0.04);
+  border-color: rgba(48, 176, 199, 0.4);
+}
