@@ -1,10 +1,7 @@
-import {StrictMode} from 'react';
-import {createRoot} from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+export default function App() {
+  return (
+    <div>
+      <h1>My Website is Working 🚀</h1>
+    </div>
+  )
+}
